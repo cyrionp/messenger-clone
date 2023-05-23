@@ -29,7 +29,7 @@ export async function POST(
 
         return NextResponse.json(user);
     } catch(error:any){
-        console.log(error,'REGISTRATION_ERROR');
+        console.log(error.response.data,'REGISTRATION_ERROR');
         return new NextResponse('Internal Error', {status:500});
     }
 };
