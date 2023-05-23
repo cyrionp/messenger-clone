@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AuthForm from "./components/AuthForm";
 
 export default function Home() {
     return (
@@ -11,7 +12,7 @@ export default function Home() {
       py-12
       sm:px-6
       lg:px-8
-      bg-gray-100
+      bg-gray-300
       ">
         
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -26,7 +27,7 @@ export default function Home() {
             Sign in to your account
           </h2>
         </div>
-        {/* AuthForm */}
+        <AuthForm />
       </div>
     )
   }
