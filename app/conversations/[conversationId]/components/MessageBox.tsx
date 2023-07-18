@@ -4,7 +4,7 @@ import Avatar from '@/app/components/Avatar';
 import { FullMessageType } from '@/app/types';
 import clsx from 'clsx';
 import { useSession } from 'next-auth/react';
-import {format} from 'date-fns';
+import { formatRelative, subDays } from 'date-fns'
 import Image from 'next/image';
 import { useState } from 'react';
 import ImageModal from './ImageModal';
@@ -53,7 +53,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
                         {data.sender.name}
                     </div>
                     <div className='text-xs text-gray-400'>
-                        {format(new Date(data.createdAt), 'p')}
+                        {formatRelative(subDays(new Date(data.createdAt), 0), new Date())}
                     </div>
                 </div>
                 <div className={message}>

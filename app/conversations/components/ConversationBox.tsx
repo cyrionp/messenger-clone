@@ -3,7 +3,7 @@
 import { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { Conversation, Message, User } from '@prisma/client';
-import { format } from 'date-fns';
+import { formatRelative, subDays } from 'date-fns'
 import { useSession } from 'next-auth/react';
 import clsx from 'clsx';
 import { FullConversationType } from '@/app/types';
@@ -111,7 +111,7 @@ const ConversationBox: React.FC<ConversationBoxProprs> = ({
                                 text-gray-400
                                 font-light
                             '>
-                                {format(new Date(lastMessage.createdAt), 'p')}
+                                {formatRelative(subDays(new Date(data.createdAt), 0), new Date())}
                             </p>
                         )}
                     </div>
